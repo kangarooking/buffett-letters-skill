@@ -1,0 +1,51 @@
+{
+  "skill": "cigar-butt-vs-great-business",
+  "version": "0.1.0",
+  "source_book": "《巴菲特致股东的信》 — 沃伦·巴菲特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这个股票PE只有3倍，是不是很便宜值得买",
+      "expected_behavior": "应激活 cigar-butt-vs-great-business，指出便宜可能是价值陷阱——猪耳朵做不了丝线钱包",
+      "notes": "低估值陷阱"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "好公司太贵了，是不是找便宜股票更好",
+      "expected_behavior": "应激活 cigar-butt-vs-great-business，展示好企业复利vs一次性折扣的长期差距",
+      "notes": "价格vs质量的选择"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "这个公司虽然业务一般但价格打了骨折",
+      "expected_behavior": "应激活 cigar-butt-vs-great-business，做'猪耳测试'——即使管理得当能变成伟大企业吗",
+      "notes": "捡便宜的心态"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我算一下可口可乐的内在价值",
+      "expected_behavior": "不应激活本skill，用户已经在评估知名好企业",
+      "notes": "诱饵：评估好企业≠雪茄蒂问题"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "市场情绪怎么样",
+      "expected_behavior": "不应激活本skill，这是市场情绪问题",
+      "notes": "诱饵：市场情绪≠质量vs价格"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "烟蒂股确实能赚一笔，很多价值投资者都这么做的",
+      "expected_behavior": "应承认雪茄蒂并非完全无效，但长期回报不如伟大企业——巴菲特自己早期也用过",
+      "notes": "边界：雪茄蒂有时有效但不持久"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

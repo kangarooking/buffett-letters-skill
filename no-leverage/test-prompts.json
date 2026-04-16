@@ -1,0 +1,51 @@
+{
+  "skill": "no-leverage",
+  "version": "0.1.0",
+  "source_book": "《巴菲特致股东的信》 — 沃伦·巴菲特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "利率这么低，借钱投资划算吗",
+      "expected_behavior": "应激活 no-leverage，指出任何正数乘以零=零，低利率不降低归零风险",
+      "notes": "低成本杠杆的诱惑"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我有90%把握这只股票会涨，要不要加杠杆",
+      "expected_behavior": "应激活 no-leverage，指出10%失败概率×杠杆=永久出局",
+      "notes": "高确信度≠杠杆合理"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "用保证金买股票合算吗",
+      "expected_behavior": "应激活 no-leverage，展示伯克希尔4次37%-59%下跌的数据",
+      "notes": "保证金交易的风险"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这个公司资产负债率怎么样",
+      "expected_behavior": "不应激活本skill，这是公司财务分析，不是个人杠杆决策",
+      "notes": "诱饵：公司财务≠个人杠杆"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我选一只基金",
+      "expected_behavior": "不应激活本skill，这是基金选择请求",
+      "notes": "诱饵：基金选择≠杠杆决策"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "有个套利机会，有确定时间表，可以用杠杆吗",
+      "expected_behavior": "应指出极少数情况下（如套利有确定性时间表）杠杆可能合理，但风险仍在",
+      "notes": "边界：杠杆的极少数合理场景"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

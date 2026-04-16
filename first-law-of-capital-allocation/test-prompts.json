@@ -1,0 +1,51 @@
+{
+  "skill": "first-law-of-capital-allocation",
+  "version": "0.1.0",
+  "source_book": "《巴菲特致股东的信》 — 沃伦·巴菲特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司宣布回购100亿股票，是不是利好",
+      "expected_behavior": "应激活 first-law-of-capital-allocation，指出回购好坏取决于价格——低于内在价值才是好的",
+      "notes": "回购决策需要价格条件判断"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这家公司不分红，留存收益能创造价值吗",
+      "expected_behavior": "应激活 first-law-of-capital-allocation，用$1测试评估留存收益效率",
+      "notes": "分红vs留存的经典问题"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司有大量现金，应该用来收购还是回购",
+      "expected_behavior": "应激活 first-law-of-capital-allocation，用第一法则框架评估哪种配置创造更多价值",
+      "notes": "资本配置选择"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这个股票技术面怎么样",
+      "expected_behavior": "不应激活本skill，这是技术分析请求",
+      "notes": "诱饵：技术分析≠资本配置"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我算一下内在价值",
+      "expected_behavior": "不应激活本skill，这是纯估值请求",
+      "notes": "诱饵：估值≠配置决策"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "公司回购价格高于内在价值",
+      "expected_behavior": "应指出回购在价格高于内在价值时是损害股东利益的行为",
+      "notes": "边界：同一行为在不同价格下对错不同"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

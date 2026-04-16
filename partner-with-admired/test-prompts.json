@@ -1,0 +1,51 @@
+{
+  "skill": "partner-with-admired",
+  "version": "0.1.0",
+  "source_book": "《巴菲特致股东的信》 — 沃伦·巴菲特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这个投资机会回报很高但管理层口碑不好，要不要投",
+      "expected_behavior": "应激活 partner-with-admired，指出差关系会在你最意想不到的时候伤害你",
+      "notes": "回报vs关系的经典权衡"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "怎么判断一个CEO值不值得信任",
+      "expected_behavior": "应激活 partner-with-admired，用'吃自己的饭'和'钦佩测试'两个工具评估",
+      "notes": "信任验证方法"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "两个合作机会，一个回报高但关系差，怎么选",
+      "expected_behavior": "应激活 partner-with-admired，宁取100%X配好关系，不要110%X配差关系",
+      "notes": "回报与关系质量的选择"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我分析这只股票的估值",
+      "expected_behavior": "不应激活本skill，这是纯估值请求",
+      "notes": "诱饵：估值≠关系评估"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个行业的竞争格局怎么样",
+      "expected_behavior": "不应激活本skill，这是行业分析",
+      "notes": "诱饵：行业分析≠伙伴选择"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "管理层很好但业务一般",
+      "expected_behavior": "应指出好管理层不能拯救差业务——关系质量和业务质量需要同时满足",
+      "notes": "边界：好关系≠好投资"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

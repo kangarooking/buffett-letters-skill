@@ -1,0 +1,51 @@
+{
+  "skill": "margin-of-safety",
+  "version": "0.1.0",
+  "source_book": "《巴菲特致股东的信》 — 沃伦·巴菲特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我算出来内在价值是100，现在价格95，可以买吗",
+      "expected_behavior": "应激活 margin-of-safety，指出5%的安全边际不足，需要更大的折扣",
+      "notes": "安全边际不足的典型场景"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "万一我估值错了怎么办，有没有什么保护",
+      "expected_behavior": "应激活 margin-of-safety，解释安全边际就是为估值错误留的缓冲",
+      "notes": "直接询问保护机制"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "这个投资下行空间有多大，我能承受多少亏损",
+      "expected_behavior": "应激活 margin-of-safety，引导计算最大损失并建立缓冲",
+      "notes": "下行风险评估"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我分析一下市场趋势",
+      "expected_behavior": "不应激活本skill，这是市场趋势分析而非下行保护评估",
+      "notes": "诱饵：趋势分析≠安全边际"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个公司有没有护城河",
+      "expected_behavior": "不应激活本skill，这是竞争分析（economic-moat领域）",
+      "notes": "诱饵：竞争优势≠价格保护"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "安全边际够大但这个行业在衰退",
+      "expected_behavior": "应指出安全边际不是万能的——行业衰退可能让'便宜'变得更便宜",
+      "notes": "边界：安全边际的局限性"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

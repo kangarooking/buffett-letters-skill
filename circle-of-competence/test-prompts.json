@@ -1,0 +1,51 @@
+{
+  "skill": "circle-of-competence",
+  "version": "0.1.0",
+  "source_book": "《巴菲特致股东的信》 — 沃伦·巴菲特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我是搞IT的，想投资房地产，感觉应该不难",
+      "expected_behavior": "应激活 circle-of-competence，提示用户IT行业的判断力不能迁移到房地产",
+      "notes": "典型的跨领域能力圈问题"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这个新能源行业好像机会很多，我想研究一下就开始投",
+      "expected_behavior": "应激活 circle-of-competence，质疑'研究一下'是否足以建立判断记录",
+      "notes": "兴趣≠能力圈"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "大家都说AI是未来，我是不是也该投点AI股票",
+      "expected_behavior": "应激活 circle-of-competence，提醒'大家都知道'不等于你理解这个领域",
+      "notes": "从众心理与能力圈边界交叉"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我分析一下茅台的财务报表",
+      "expected_behavior": "不应激活本skill，这是纯财务分析请求，不涉及领域边界问题",
+      "notes": "诱饵：分析请求≠能力圈问题"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个股票PE太高了，是不是被高估了",
+      "expected_behavior": "不应激活本skill，这是估值问题而非能力圈边界问题",
+      "notes": "诱饵：估值讨论≠能力圈讨论"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我看了很多研报，觉得我对半导体行业有了基本了解",
+      "expected_behavior": "可能激活但应指出：看研报≠能力圈。能力圈由历史判断准确率定义，而非信息量",
+      "notes": "边界：信息量与判断力的区别"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

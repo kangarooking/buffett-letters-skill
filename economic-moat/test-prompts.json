@@ -1,0 +1,51 @@
+{
+  "skill": "economic-moat",
+  "version": "0.1.0",
+  "source_book": "《巴菲特致股东的信》 — 沃伦·巴菲特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "为什么茅台能一直提价别人不行",
+      "expected_behavior": "应激活 economic-moat，分析品牌溢价和定价权作为护城河",
+      "notes": "定价权是护城河的典型表现"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这家软件公司客户留存率很高，算不算护城河",
+      "expected_behavior": "应激活 economic-moat，分析切换成本作为护城河来源",
+      "notes": "切换成本型护城河"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "这个品牌到底值多少钱，为什么能持续赚钱",
+      "expected_behavior": "应激活 economic-moat，分析经济商誉如何以极少资本创造利润增长",
+      "notes": "经济商誉估值"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我看看这个股票的PE是多少",
+      "expected_behavior": "不应激活本skill，这是估值指标查询",
+      "notes": "诱饵：估值倍数≠竞争力分析"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "市场情绪怎么样，要不要加仓",
+      "expected_behavior": "不应激活本skill，这是市场情绪和交易决策",
+      "notes": "诱饵：情绪判断≠竞争分析"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "护城河很深但行业在萎缩",
+      "expected_behavior": "应指出护城河不能抵抗行业衰退——护城河保护的是市场份额，但不能扩大萎缩的市场",
+      "notes": "边界：护城河的局限性"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

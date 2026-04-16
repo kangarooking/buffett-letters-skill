@@ -1,0 +1,51 @@
+{
+  "skill": "three-asset-categories",
+  "version": "0.1.0",
+  "source_book": "《巴菲特致股东的信》 — 沃伦·巴菲特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "黄金是不是好的避险资产",
+      "expected_behavior": "应激活 three-asset-categories，将黄金归类为第二类（非生产性），不产生现金流",
+      "notes": "黄金属于哪类资产"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "比特币到底有没有内在价值",
+      "expected_behavior": "应激活 three-asset-categories，将比特币归类为第二类，灌木丛里没有鸟",
+      "notes": "加密货币分类"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "持有现金为什么会亏钱",
+      "expected_behavior": "应激活 three-asset-categories，解释第一类资产被通胀隐性征税",
+      "notes": "货币性资产的通胀侵蚀"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我分析苹果的财务数据",
+      "expected_behavior": "不应激活本skill，这是个股分析",
+      "notes": "诱饵：个股分析≠资产类别思考"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "什么时候该卖",
+      "expected_behavior": "不应激活本skill，这是卖出时机决策",
+      "notes": "诱饵：卖出决策≠资产分类"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "黄金最近涨了很多，长期看是不是也不错",
+      "expected_behavior": "应指出短期上涨≠长期回报——三分类法是长期框架，第二类资产在长期竞赛中必然输给第三类",
+      "notes": "边界：短期表现≠长期竞争力"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

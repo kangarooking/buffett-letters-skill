@@ -1,0 +1,51 @@
+{
+  "skill": "float-thinking",
+  "version": "0.1.0",
+  "source_book": "《巴菲特致股东的信》 — 沃伦·巴菲特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "保险公司是怎么赚钱的",
+      "expected_behavior": "应激活 float-thinking，解释浮存金模式——先收保费后赔付，承保盈利时成本为负",
+      "notes": "保险浮存金的经典问题"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "有没有办法用别人的钱来投资",
+      "expected_behavior": "应激活 float-thinking，引导寻找负成本浮存金的类比模式",
+      "notes": "寻找浮存金替代方案"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "SaaS年付预收款算不算低成本资金",
+      "expected_behavior": "应激活 float-thinking，分析预付款作为浮存金类比——先收钱后提供服务",
+      "notes": "浮存金在非保险行业的类比"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "要不要加杠杆买股票",
+      "expected_behavior": "不应激活本skill，这是no-leverage领域的问题",
+      "notes": "诱饵：杠杆决策≠浮存金思维"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个公司利润率怎么样",
+      "expected_behavior": "不应激活本skill，这是盈利能力分析",
+      "notes": "诱饵：利润率分析≠低成本资金"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "银行存款也是别人的钱，算浮存金吗",
+      "expected_behavior": "应指出银行存款有利息成本，与承保盈利下成本为负的浮存金本质不同",
+      "notes": "边界：有成本的资金≠负成本浮存金"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

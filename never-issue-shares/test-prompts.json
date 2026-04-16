@@ -1,0 +1,51 @@
+{
+  "skill": "never-issue-shares",
+  "version": "0.1.0",
+  "source_book": "《巴菲特致股东的信》 — 沃伦·巴菲特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司宣布用股票收购另一家公司，对股东是好是坏",
+      "expected_behavior": "应激活 never-issue-shares，指出用股票收购=放弃未来复利力量，展示Dexter Shoe教训",
+      "notes": "股票收购的隐性成本"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "现金收购和股票收购哪个更好",
+      "expected_behavior": "应激活 never-issue-shares，解释现金收购损失有限，股票收购损失可能无限",
+      "notes": "收购方式比较"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "股权稀释严重吗，怎么评估",
+      "expected_behavior": "应激活 never-issue-shares，计算隐性成本——假设被收购业务归零，发行的股票30年后值多少",
+      "notes": "稀释影响评估"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我分析目标公司的财务状况",
+      "expected_behavior": "不应激活本skill，这是目标公司分析",
+      "notes": "诱饵：标的分析≠支付方式评估"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个收购价格合理吗",
+      "expected_behavior": "不应激活本skill，这是价格评估而非支付方式评估",
+      "notes": "诱饵：价格评估≠支付方式"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "两家公司都极度优秀且估值合理，换股是否可接受",
+      "expected_behavior": "应指出极少数情况下股票收购可能可接受，但需满足严格条件",
+      "notes": "边界：极少数合理场景"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

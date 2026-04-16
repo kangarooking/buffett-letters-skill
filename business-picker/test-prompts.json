@@ -1,0 +1,51 @@
+{
+  "skill": "business-picker",
+  "version": "0.1.0",
+  "source_book": "《巴菲特致股东的信》 — 沃伦·巴菲特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这只股票K线形态很好，要不要买",
+      "expected_behavior": "应激活 business-picker，引导从企业分析视角而非技术分析视角评估",
+      "notes": "典型技术分析思维需要纠偏"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "帮我分析一下这个股票能不能涨",
+      "expected_behavior": "应激活 business-picker，将问题从'能不能涨'转为'这个企业值多少钱'",
+      "notes": "价格预测思维"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "股价跌了50%是不是抄底机会",
+      "expected_behavior": "应激活 business-picker，指出价格下跌不等于买入机会，需评估企业价值",
+      "notes": "用价格而非价值做判断"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我分析一下这家公司的商业模式",
+      "expected_behavior": "不应激活本skill，用户已经在做企业分析",
+      "notes": "诱饵：已具备企业视角"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个行业的竞争格局怎么样",
+      "expected_behavior": "不应激活本skill，这是行业分析请求",
+      "notes": "诱饵：行业分析≠股票vs企业视角问题"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这个公司业务很好但股价太贵了",
+      "expected_behavior": "可能不激活——用户已用企业视角在看，只是价格判断问题（可引导至margin-of-safety）",
+      "notes": "边界：已有企业视角时只需价格引导"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

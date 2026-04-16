@@ -1,0 +1,51 @@
+{
+  "skill": "hold-forever",
+  "version": "0.1.0",
+  "source_book": "《巴菲特致股东的信》 — 沃伦·巴菲特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这只股票已经涨了200%，要不要卖",
+      "expected_behavior": "应激活 hold-forever，做卖出测试——如果今天没有持仓，你愿意以当前价格买入吗",
+      "notes": "涨多了就想卖的心理"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "什么时候止盈合适",
+      "expected_behavior": "应激活 hold-forever，指出'止盈'概念本身违背永久持有——优秀企业不需要止盈",
+      "notes": "止盈概念质疑"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "要不要先卖等跌了再买回来",
+      "expected_behavior": "应激活 hold-forever，计算卖出成本=税+交易成本+放弃的复利",
+      "notes": "波段操作的诱惑"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我选一只股票",
+      "expected_behavior": "不应激活本skill，这是选股请求而非持有决策",
+      "notes": "诱饵：选股≠持有期限"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个公司有没有护城河",
+      "expected_behavior": "不应激活本skill，这是竞争分析",
+      "notes": "诱饵：护城河分析≠持有决策"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "持仓企业基本面开始恶化了",
+      "expected_behavior": "应指出永久持有的前提是企业依然优秀——基本面恶化时应卖出",
+      "notes": "边界：基本面恶化时应该卖出"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

@@ -1,0 +1,51 @@
+{
+  "skill": "real-conservatism",
+  "version": "0.1.0",
+  "source_book": "《巴菲特致股东的信》 — 沃伦·巴菲特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "分析师一致推荐这只股票，是不是比较安全",
+      "expected_behavior": "应激活 real-conservatism，指出多数人同意不增加正确性，'公开意见调查不能替代思考'",
+      "notes": "从众=安全的误区"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "大家都说应该分散投资，集中投资不就风险很大吗",
+      "expected_behavior": "应激活 real-conservatism，区分从众安全和真正保守——保守取决于分析质量",
+      "notes": "行业惯例≠保守"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "行业惯例是这样的，为什么不跟着做",
+      "expected_behavior": "应激活 real-conservatism，质疑'行业惯例'是否经过独立验证",
+      "notes": "用行业惯例作为论据"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我已经独立分析了这家公司，结论是买入",
+      "expected_behavior": "不应激活本skill，用户已有独立分析支撑",
+      "notes": "诱饵：已有独立分析时不需要纠偏"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我分析财务报表",
+      "expected_behavior": "不应激活本skill，这是纯分析请求",
+      "notes": "诱饵：分析请求≠从众问题"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "多数人说要卖，我的分析也说基本面恶化了",
+      "expected_behavior": "应指出多数人这次恰好是对的——不能为反而反，关键是你的分析是否独立",
+      "notes": "边界：多数人有时确实是对的"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

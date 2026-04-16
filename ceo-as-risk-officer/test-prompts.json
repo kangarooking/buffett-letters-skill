@@ -1,0 +1,51 @@
+{
+  "skill": "ceo-as-risk-officer",
+  "version": "0.1.0",
+  "source_book": "《巴菲特致股东的信》 — 沃伦·巴菲特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司有风控部门，CEO还需要亲自管风险吗",
+      "expected_behavior": "应激活 ceo-as-risk-officer，指出CEO的风险责任不可委托给任何部门",
+      "notes": "风险责任委托的误区"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "为什么大公司会突然暴雷",
+      "expected_behavior": "应激活 ceo-as-risk-officer，解释CEO未亲自管风险+诺亚法则——晴天不造船雨天就沉",
+      "notes": "企业暴雷的风险根因"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司应该设立独立的风险管理委员会吗",
+      "expected_behavior": "应激活 ceo-as-risk-officer，可以设但CEO本人必须亲自理解和管理风险",
+      "notes": "风险管理架构设计"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我分析这家公司的盈利能力",
+      "expected_behavior": "不应激活本skill，这是盈利分析",
+      "notes": "诱饵：盈利分析≠风险管理"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个股票值多少钱",
+      "expected_behavior": "不应激活本skill，这是估值请求",
+      "notes": "诱饵：估值≠风险治理"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "中小企业CEO没时间亲自管所有风险",
+      "expected_behavior": "应承认资源限制但强调核心风险仍需亲力亲为——不能什么都委托",
+      "notes": "边界：资源有限但核心风险不可下放"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

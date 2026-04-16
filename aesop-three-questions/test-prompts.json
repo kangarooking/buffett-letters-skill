@@ -1,0 +1,51 @@
+{
+  "skill": "aesop-three-questions",
+  "version": "0.1.0",
+  "source_book": "《巴菲特致股东的信》 — 沃伦·巴菲特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这只股票值多少钱？应该用PE还是DCF估值",
+      "expected_behavior": "应激活 aesop-three-questions，引导用户用三问框架思考内在价值",
+      "notes": "典型的估值请求"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "比特币到底有没有内在价值",
+      "expected_behavior": "应激活 aesop-three-questions，用三问得出灌木丛里没有鸟",
+      "notes": "非生产性资产的估值"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "这个创业项目值不值得投200万",
+      "expected_behavior": "应激活 aesop-three-questions，用现金流折现框架评估",
+      "notes": "投资项目估值"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我该不该卖掉这只股票",
+      "expected_behavior": "不应激活本skill，这是卖出决策而非估值问题",
+      "notes": "诱饵：卖出决策≠估值（可能是hold-forever）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个CEO靠不靠谱",
+      "expected_behavior": "不应激活本skill，这是管理层评估",
+      "notes": "诱饵：管理评估≠资产估值"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这个房产投资回报率8%，值不值得买",
+      "expected_behavior": "可能激活——三问框架适用于房产（会产生的鸟），但也涉及three-asset-categories",
+      "notes": "边界：三问和资产分类重叠"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

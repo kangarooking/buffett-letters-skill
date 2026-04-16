@@ -1,0 +1,51 @@
+{
+  "skill": "fear-and-greed",
+  "version": "0.1.0",
+  "source_book": "《巴菲特致股东的信》 — 沃伦·巴菲特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这次真的不一样，所有人都说AI泡沫要破了",
+      "expected_behavior": "应激活 fear-and-greed，质疑'这次不一样'的说法，检查内在价值是否变化",
+      "notes": "典型的'这次不一样'叙事"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "市场天天涨，再不买就晚了",
+      "expected_behavior": "应激活 fear-and-greed，指出FOMO情绪，回归基于内在价值的判断",
+      "notes": "贪婪/FOMO情绪"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "所有人都亏钱了，我是不是也该跑",
+      "expected_behavior": "应激活 fear-and-greed，指出别人恐惧时可能是买入时机",
+      "notes": "恐慌中的从众"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这个公司财务数据怎么样",
+      "expected_behavior": "不应激活本skill，这是基本面分析请求",
+      "notes": "诱饵：财务分析≠情绪影响"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我做个资产配置方案",
+      "expected_behavior": "不应激活本skill，这是资产配置请求，不涉及情绪",
+      "notes": "诱饵：配置规划≠情绪驱动决策"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "市场跌了30%，但我的分析说基本面确实恶化了",
+      "expected_behavior": "应指出基本面恶化时卖出不是恐惧而是理性——逆向不是盲目反向操作",
+      "notes": "边界：逆向≠盲目反向"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

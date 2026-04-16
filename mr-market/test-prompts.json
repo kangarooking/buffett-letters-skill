@@ -1,0 +1,51 @@
+{
+  "skill": "mr-market",
+  "version": "0.1.0",
+  "source_book": "《巴菲特致股东的信》 — 沃伦·巴菲特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "大盘连跌五天，我是不是该割肉",
+      "expected_behavior": "应激活 mr-market，提示市场先生的恐慌为你提供了低价买入的机会",
+      "notes": "典型的受市场情绪影响"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这只股票一直在涨，一定有什么我不知道的利好消息",
+      "expected_behavior": "应激活 mr-market，提醒价格变动不等于信息，应回归企业基本面分析",
+      "notes": "把价格变动当作信息"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "市场恐慌了所有人都在抛售，我是不是也该跑",
+      "expected_behavior": "应激活 mr-market，指出别人恐惧时可能是你贪婪的时候",
+      "notes": "群体恐慌中的从众冲动"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我算一下这个公司的内在价值",
+      "expected_behavior": "不应激活本skill，这是纯估值请求",
+      "notes": "诱饵：估值计算≠市场情绪问题"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个管理层靠不靠谱",
+      "expected_behavior": "不应激活本skill，这是管理层评估",
+      "notes": "诱饵：管理评估≠市场波动影响"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "市场跌了但基本面确实没变，我已经知道不该恐慌",
+      "expected_behavior": "可能不激活——用户已经有了市场先生思维，不需要纠正",
+      "notes": "边界：已具备认知时无需纠偏"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

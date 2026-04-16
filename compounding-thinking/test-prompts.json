@@ -1,0 +1,51 @@
+{
+  "skill": "compounding-thinking",
+  "version": "0.1.0",
+  "source_book": "《巴菲特致股东的信》 — 沃伦·巴菲特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "年化15%和20%长期差距有多大",
+      "expected_behavior": "应激活 compounding-thinking，展示30年复利下15%和20%的巨大差距（差3.4倍）",
+      "notes": "复利差异的直觉缺失"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "为什么巴菲特持有可口可乐28年不卖",
+      "expected_behavior": "应激活 compounding-thinking，展示Coke $13亿→$250亿+年股息$7亿的复利力量",
+      "notes": "长期持有的复利逻辑"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "频繁交易和长期持有哪个好",
+      "expected_behavior": "应激活 compounding-thinking，解释交易成本+税收+放弃复利的综合损失",
+      "notes": "交易频率vs复利"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这只股票明天会涨吗",
+      "expected_behavior": "不应激活本skill，这是短期预测",
+      "notes": "诱饵：短期预测≠长期复利"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我做技术分析",
+      "expected_behavior": "不应激活本skill，这是技术分析请求",
+      "notes": "诱饵：技术分析≠复利思维"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "高增长股票能持续20%年化吗",
+      "expected_behavior": "应指出高增长率不可持续——基数膨胀后维持同等增速需要越来越大的绝对增量",
+      "notes": "边界：复利的自毁性"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

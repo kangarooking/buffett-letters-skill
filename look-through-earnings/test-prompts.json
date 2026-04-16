@@ -1,0 +1,51 @@
+{
+  "skill": "look-through-earnings",
+  "version": "0.1.0",
+  "source_book": "《巴菲特致股东的信》 — 沃伦·巴菲特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这家公司EBITDA很高，是不是很赚钱",
+      "expected_behavior": "应激活 look-through-earnings，指出EBITDA忽略了资本支出这个真实成本",
+      "notes": "EBITDA误导的典型场景"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "净利润和自由现金流为什么差这么多",
+      "expected_behavior": "应激活 look-through-earnings，解释所有者收益=净利润+折旧-维持性资本支出",
+      "notes": "盈利质量评估"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "折旧是非现金费用，应该加回来对吗",
+      "expected_behavior": "应激活 look-through-earnings，指出折旧是真实的资金预付，牙仙不会为资本支出买单",
+      "notes": "折旧认知误区"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这个公司有没有护城河",
+      "expected_behavior": "不应激活本skill，这是竞争分析",
+      "notes": "诱饵：竞争优势≠盈余质量"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "什么时候该卖出",
+      "expected_behavior": "不应激活本skill，这是卖出时机决策",
+      "notes": "诱饵：卖出决策≠盈余分析"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "SaaS公司用订阅制，收入确认和传统不一样",
+      "expected_behavior": "应指出会计差异不等于盈余质量问题——需要区分会计方法和真实经济差异",
+      "notes": "边界：会计方法差异≠盈余操纵"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}

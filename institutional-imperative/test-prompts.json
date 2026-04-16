@@ -1,0 +1,51 @@
+{
+  "skill": "institutional-imperative",
+  "version": "0.1.0",
+  "source_book": "《巴菲特致股东的信》 — 沃伦·巴菲特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "为什么这么大的公司会做这么蠢的收购",
+      "expected_behavior": "应激活 institutional-imperative，解释机构强制力的三重驱动",
+      "notes": "管理层非理性行为"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "同行都在搞数字化转型，我们是不是也要跟",
+      "expected_behavior": "应激活 institutional-imperative，质疑'同行在做'是否构成充分理由",
+      "notes": "模仿同行的倾向"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "董事会为什么不管管这个CEO",
+      "expected_behavior": "应激活 institutional-imperative，解释董事会议气氛压制异议和CEO无直接上司的系统性问题",
+      "notes": "公司治理失败"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这个公司有没有护城河",
+      "expected_behavior": "不应激活本skill，这是竞争分析",
+      "notes": "诱饵：竞争优势≠机构行为"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我算一下内在价值",
+      "expected_behavior": "不应激活本skill，这是估值请求",
+      "notes": "诱饵：估值≠管理层行为分析"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "同行在做的事确实看起来有道理",
+      "expected_behavior": "应指出有时同行确实发现了更好的方法——不能因为'大家都做'就自动反着来",
+      "notes": "边界：模仿不一定总是错的"
+    }
+  ],
+  "minimum_pass_rate": 0.8
+}
